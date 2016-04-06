@@ -11,7 +11,7 @@ custom:
     category:
         deeplearning: Deep Learning
         nlp: NLP
-        docker:Docker
+        docker: Docker
     categories:
       - name:  deeplearning
         title: Deep Learning
