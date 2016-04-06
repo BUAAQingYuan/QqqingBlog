@@ -4,7 +4,7 @@ exclude:
   - README.md
 
 name: Your Name's Site
-host: http://buaaqingyuan.github.io/QqqingBlog/
+host: buaaqingyuan.github.io/QqqingBlog
 desc: Some description of your site.
 
 custom:
