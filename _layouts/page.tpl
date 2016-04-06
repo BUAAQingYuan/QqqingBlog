@@ -40,9 +40,9 @@
 	</form>
 	
 	<div class="block block-about">
-		<h3>About</h3>
+		<h3>About Author</h3>
 		<figure>
-			{% if site.meta.author.gravatar %}<img src="{{ site.meta.gravatar}}{{ site.meta.author.gravatar }}?s=48" />{% endif %}
+			{% if site.meta.author.gravatar %}<img src="http://{{ site.host }}/assets/images/{{ site.meta.author.gravatar }}" />{% endif %}
 			<figcaption><strong>{{ site.meta.author.name }}</strong></figcaption>
 		</figure>
 		<p>Hello,Young!</p>
