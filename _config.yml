@@ -12,6 +12,7 @@ custom:
         deeplearning: Deep Learning
         nlp: NLP
         docker: Docker
+        ml: Machine Learning
     categories:
       - name:  deeplearning
         title: Deep Learning
@@ -21,6 +22,9 @@ custom:
 
       - name:  docker
         title: Docker
+
+      - name:  ml
+        title: Machine Learning
 
     scrollingLoadCount: 2                          # 滚屏自动加载文章数量，“0”为关闭
 
