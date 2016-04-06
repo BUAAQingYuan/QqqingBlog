@@ -63,8 +63,8 @@
 	<div class="block block-thank">
 		<h3>Others</h3>
 		<!--待添加-->
-		<a href="https://github.com/{{ site.meta.author.github }}">View my GitHub :)</a>
-		<a href="http://git.oschina.net/{{ site.meta.author.gitosc }}">View my Git@OSC :)</a>
+		<p><a href="https://github.com/{{ site.meta.author.github }}">View my GitHub :)</a></p>
+		<p><a href="http://git.oschina.net/{{ site.meta.author.gitosc }}">View my Git@OSC :)</a></p>
 
 	</div>
 </aside>
