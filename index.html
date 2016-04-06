@@ -1,63 +1,79 @@
 ---
-　　layout: default
+layout: default
+title: "首页：Home"
 ---
+<!-- 
+<h1 class="page-header">
+  <small>
+    {{ site.description }}
+  </small>
+</h1>
+-->
+<!-- Loop output paged posts -->
+<div id="index" class="row">
+    <div class="post-area">
+     	 <div class="post-list-body">
+        <div post-cate="All">
+        <ul class="posts">
+	{% for post in paginator.posts %}
+	<li>	
+	<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+	<span class="date">{{ post.date | date_to_string }}</span>
+	
+	<hr>
+	<p>{% if post.excerpt.size > 32 %}{{ post.excerpt }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 160 }}{% endif %}</p>
+		<p> <a href="{{ post.url }}"><span >阅读全文 &raquo; </span></a></p>
+	<hr>
+	</li>
+	{% endfor %}
+	</ul>
+	<!-- Pager indicator -->
+	<ul class="pager">
+	  {% if paginator.previous_page %} {% if paginator.previous_page == 1 %}
+	  <li class="previous">
+	    <a href="{{ site.url }}/">
+	      &larr; Older
+	    </a>
+	  </li>
+	  {% else %}
+	  <li class="previous">
+	    <a href="{{ site.url }}/page{{ paginator.previous_page }}">
+	      &larr; Older
+	    </a>
+	  </li>
+	  {% endif %} {% endif %} {% if paginator.next_page %}
+	  <li class="next">
+	    <a href="{{ site.url }}/page{{ paginator.next_page }}">
+	      Newer &rarr;
+	    </a>
+	  </li>
+	  {% endif %}
+	</ul>
+	</div>
+	
 
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Qqqingblog</title>
+	 
+       {% for category in site.categories %}
+	<div post-cate="{{category | first}}">
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/github-light.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Qqqingblog</h1>
-        <p>Qqqing的个人博客</p>
-        <p>联系方式:ae5656ln@163.com</p>
-        <p class="view"><a href="https://github.com/BUAAQingYuan">View My GitHub :) <small>BUAAQingYuan</small></a></p>
-        <p class="view"><a href="http://git.oschina.net/buaalining">View My Git@OSC:) <small>buaaqingyuan</small></a></p>
+          <ul class="posts">
+            {% for posts in category  %}
+              {% for post in posts %}
+                {% if post.url %}
+		<li>
+                  <a href="{{ post.url }}" class="post-list-item">
+                    <h2>{{ post.title }}</h2>
+                    <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+                  </a>
+		</li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+	</div>
+        {% endfor %}
+	
+	 </div>
 
-        <ul>
-          <li><a href="https://github.com/BUAAQingYuan/QqqingBlog/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/BUAAQingYuan/QqqingBlog/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/BUAAQingYuan/QqqingBlog">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-
-      <section>
-        <h3>
-          <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to Qqqing's Blog.
-        </h3>
-
-        <p>Hello!Young.</p>
-
-        <!--blog list-->
-        <ul>
-　　　　　　{% for post in site.posts %}
-　　　　　　    <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-　　　　　　{% endfor %}
-        </ul>
-
-
-      </section>
-　　  
-　　 <footer>
-        <p>This project is maintained by <a href="https://github.com/BUAAQingYuan">BUAAQingYuan</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
-</html>
-
-      
-     
+</div>
+</div>
