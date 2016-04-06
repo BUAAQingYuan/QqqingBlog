@@ -5,7 +5,7 @@ class: page-type-post
 
 ---
 
-<div class="trace"><a href="http://{{ site.host }}">{{ site.name }}</a> / {{ post.category }} /{{ page.title }}</div>
+<div class="trace"><a href="http://{{ site.host }}">{{ site.name }}</a>/{{ page.title }}</div>
 
 <article>
 	<h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
