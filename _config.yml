@@ -9,7 +9,7 @@ desc: Qqqing的个人博客
 
 custom:
     category:
-        default: Deep Learning
+        deeplearning: Deep Learning
         another: Another Category
     categories:
       - name:  deeplearning
