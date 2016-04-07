@@ -20,12 +20,12 @@
 	{{ content }}
 
 	<footer>
-		<p>&copy; Since 2012</p>
+		<p>&copy; Since 2016</p>
 	</footer>
 </div>
 
 <aside>
-	<h2><a href="/">{{ site.name }}</a><a href="/feed.xml" class="feed-link" title="Subscribe"><i class="fa fa-rss-square"></i></a></h2>
+	<h2><a href="http://{{ site.host }}">{{ site.name }}</a><a href="http://{{ site.host }}/feed.xml" class="feed-link" title="Subscribe"><i class="fa fa-rss-square"></i></a></h2>
 	
 	<nav class="block">
 		<ul>
@@ -34,7 +34,7 @@
 		</ul>
 	</nav>
 	
-	<form action="/search/" class="block block-search">
+	<form action="http://{{ site.host }}/search/" class="block block-search">
 		<h3>Search</h3>
 		<p><input type="search" name="q" placeholder="Search" /></p>
 	</form>
@@ -63,8 +63,10 @@
 	<div class="block block-thank">
 		<h3>Others</h3>
 		<!--待添加-->
-		<p><a href="https://github.com/{{ site.meta.author.github }}">View my GitHub :)</a></p>
-		<p><a href="http://git.oschina.net/{{ site.meta.author.gitosc }}">View my Git@OSC :)</a></p>
+		<ul>
+			<li><p><a href="https://github.com/{{ site.meta.author.github }}">View my GitHub :)</a></p></li>
+			<li><p><a href="http://git.oschina.net/{{ site.meta.author.gitosc }}">View my Git@OSC :)</a></p></li>
+		</ul>
 
 	</div>
 </aside>
