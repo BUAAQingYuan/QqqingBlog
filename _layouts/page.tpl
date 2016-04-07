@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="http://{{ site.host }}/assets/css/site.css" />
 <link rel="stylesheet" type="text/css" href="http://{{ site.host }}/assets/css/code/github.css" />
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 {% for style in page.styles %}<link rel="stylesheet" type="text/css" href="{{ style }}" />
 {% endfor %}
 </head>
