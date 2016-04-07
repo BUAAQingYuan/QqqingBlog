@@ -45,6 +45,7 @@
 			{% if site.meta.author.gravatar %}<img src="http://{{ site.host }}/assets/images/{{ site.meta.author.gravatar }}" />{% endif %}
 			<figcaption>
 				<strong>{{ site.meta.author.name }}</strong>
+				<br />
 				<strong>{{ site.meta.author.email }}</strong>
 			</figcaption>
 		</figure>
