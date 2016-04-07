@@ -43,7 +43,10 @@
 		<h3>About Author</h3>
 		<figure>
 			{% if site.meta.author.gravatar %}<img src="http://{{ site.host }}/assets/images/{{ site.meta.author.gravatar }}" />{% endif %}
-			<figcaption><strong>{{ site.meta.author.name }}</strong></figcaption>
+			<figcaption>
+				<strong>{{ site.meta.author.name }}</strong>
+				<strong>{{ site.meta.author.email }}</strong>
+			</figcaption>
 		</figure>
 		<p>Hello,Young!</p>
 	</div>
