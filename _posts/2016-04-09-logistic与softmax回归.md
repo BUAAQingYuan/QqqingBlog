@@ -25,9 +25,15 @@ $$ h_{\theta}(x^{(i)}) =  \begin{bmatrix} p(y^{(i)}=1 \| x^{(i)};\theta) \\ p(y^
 
 softmax有k个类别， $$  e^{ \theta_{j}^{T} x^{(i)}}  $$ 为第 i 个类别的概率，然后除以它们的累加和，实现归一化，使得k个类别输出的概率和为1 。
 
+参数 $$ \theta $$是一个矩阵，矩阵的每一行对应一个类别的参数。
+
+$$ \theta =  \begin{bmatrix} \theta_{1}^{T} \\ \theta_{2}^{T} \\ ..\\ \theta_{k}^{T} \end{bmatrix} $$
+
 softmax的代价函数为
 
 $$ J(\theta) =- \frac{1}{m} \left [  \sum_{i=1}^{m} \sum_{j=1}^{k} 1 \{ y^{(i)}=j \} log \frac {e^{ \theta_{j}^{T} x^{(i)}}} { \sum_{l=1}^{k} e^{\theta_{ l }^{T}x^{(i)}}} \right ] $$
+
+其中1{...}是一个指示性函数，当括号其中的值为真时，函数结果为1，否则结果为0 。
 
 加上规则化项
 
