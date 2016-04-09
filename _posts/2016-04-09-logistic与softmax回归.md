@@ -21,17 +21,17 @@ $$ J(\theta) =- \frac{1}{m} \left [  \sum_{i=1}^{m} y^{(i)}log h_{\theta}(x^{(i)
 
 假设多分类问题总共有k个类别，此时有
 
-$$ h_{\theta}(x^{(i)}) =  \begin{bmatrix} p(y^{(i)}=1 \| x^{(i)};\theta) \\ p(y^{(i)}=2 \| x^{(i)};\theta) \\ ..\\ p(y^{(i)}=k \| x^{(i)};\theta) \end{bmatrix} =\frac{1}{\sum_{j=1}^{k} e^{\theta_{j}^{T}x^{(i)}}} \begin{bmatrix} e^{- \theta_{1}^{T} x^{(i)}}\\ e^{- \theta_{2}^{T} x^{(i)}}\\ ..\\ e^{- \theta_{k}^{T} x^{(i)}} \end{bmatrix} $$
+$$ h_{\theta}(x^{(i)}) =  \begin{bmatrix} p(y^{(i)}=1 \| x^{(i)};\theta) \\ p(y^{(i)}=2 \| x^{(i)};\theta) \\ ..\\ p(y^{(i)}=k \| x^{(i)};\theta) \end{bmatrix} =\frac{1}{\sum_{j=1}^{k} e^{\theta_{j}^{T}x^{(i)}}} \begin{bmatrix} e^{ \theta_{1}^{T} x^{(i)}}\\ e^{ \theta_{2}^{T} x^{(i)}}\\ ..\\ e^{ \theta_{k}^{T} x^{(i)}} \end{bmatrix} $$
 
-softmax有k个类别， $$  e^{- \theta_{j}^{T} x^{(i)}}  $$ 为第 i 个类别的概率，然后除以它们的累加和，实现归一化，使得k个类别输出的概率和为1 。
+softmax有k个类别， $$  e^{ \theta_{j}^{T} x^{(i)}}  $$ 为第 i 个类别的概率，然后除以它们的累加和，实现归一化，使得k个类别输出的概率和为1 。
 
 softmax的代价函数为
 
-$$ J(\theta) =- \frac{1}{m} \left [  \sum_{i=1}^{m} \sum_{j=1}^{k} 1 {y^{(i)}=j} log \frac {e^{- \theta_{j}^{T} x^{(i)}}} { \sum_{l=1}^{k} e^{\theta_{l}^{T}x^{(i)}}} \right ] $$
+$$ J(\theta) =- \frac{1}{m} \left [  \sum_{i=1}^{m} \sum_{j=1}^{k} 1 \{ y^{(i)}=j \} log \frac {e^{ \theta_{j}^{T} x^{(i)}}} { \sum_{l=1}^{k} e^{\theta_{ l }^{T}x^{(i)}}} \right ] $$
 
 加上规则化项
 
-$$ J(\theta) =- \frac{1}{m} \left [  \sum_{i=1}^{m} \sum_{j=1}^{k} 1 {y^{(i)}=j} log \frac {e^{- \theta_{j}^{T} x^{(i)}}} { \sum_{l=1}^{k} e^{\theta_{l}^{T}x^{(i)}}} \right ] + \frac{ \lambda }{2} \sum_{i=1}^{k} \sum_{j=0}^{n} \theta_{ij}^{2} $$
+$$ J(\theta) =- \frac{1}{m} \left [  \sum_{i=1}^{m} \sum_{j=1}^{k} 1 \{ y^{(i)}=j \} log \frac {e^{ \theta_{j}^{T} x^{(i)}}} { \sum_{l=1}^{k} e^{\theta_{l}^{T}x^{(i)}}} \right ] + \frac{ \lambda }{2} \sum_{i=1}^{k} \sum_{j=0}^{n} \theta_{ij}^{2} $$
 
 在程序实现时，一般采用批量随机梯度下降。每遍历完一个batch的样本才计算梯度和更新参数，一个batch一般由几十到几百个样本。随机梯度下降则是一个样本更新一次。
 
