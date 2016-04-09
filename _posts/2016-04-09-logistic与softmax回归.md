@@ -8,7 +8,7 @@ category: ml
 
 逻辑回归的假设函数为
 
-$$ h_{\theta}(x) =\frac{1}{1+e^{-\theta^{T}x} $$
+$$ h_{\theta}(x) =\frac{1}{1+e^{- \theta^{T} x} $$
 
 逻辑回归模型的参数就是$$ \theta $$，然后定义目标函数为
 
