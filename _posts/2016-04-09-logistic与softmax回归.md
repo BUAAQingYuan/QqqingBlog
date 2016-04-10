@@ -41,4 +41,22 @@ $$ J(\theta) =- \frac{1}{m} \left [  \sum_{i=1}^{m} \sum_{j=1}^{k} 1 \{ y^{(i)}=
 
 在程序实现时，一般采用批量随机梯度下降。每遍历完一个batch的样本才计算梯度和更新参数，一个batch一般由几十到几百个样本。随机梯度下降则是一个样本更新一次。
 
+得到梯度公式
+
+$$ ▽_{\theta_{j}} J(\theta) = - \frac{1}{m} \sum_{i=1}^{m} \left [  x^{(i)}( 1 \{ y^{(i)}=j \} -p(y^{(i)}=j \| x^{(i)};\theta) ) \right ] $$
+
+$$ ▽_{\theta_{j}} J(\theta) $$是一个向量，它的第 l 个元素 $$ \frac{\partial J(\theta)}{\partial \theta_{jl}} $$是 $$ J(\theta) $$ 对 $$\theta_{j} $$的第 l 个分量的偏导数。
+
+softmax模型中有一个特点，将每一个 $$ \theta_{j} $$减去一个向量 $$\psi $$
+
+$$ p(y^{(i)}=j \| x^{(i)};\theta) = \frac {e^{(\theta_{j}-\psi)^{T} x^{(i)}}}{\sum_{l=1}^{k} e^{(\theta_{l}-\psi)^{T} x^{(i)}}} =\frac {e^{ \theta_{j}^{T} x^{(i)}}} { \sum_{l=1}^{k} e^{\theta_{ l }^{T}x^{(i)}}}$$
+
+从$$\theta_{j} $$中减去$$\psi $$结果不变，表明softmax模型被过度参数化了。如果求得一组解$$(\theta_{1},\theta_{2},...,\theta_{k},) $$，那么$$(\theta_{1}-\psi,\theta_{2}-\psi,...,\theta_{k}-\psi,) $$也是一个解。同时，可以令$$ \psi=\theta_{1} $$ ，则可以去掉向量 $$\theta_{1} $$，而不影响函数。
+
+添加规则化项后，目标函数就变成了严格的凸函数，可以保证得到唯一解。
+
+
+对于多分类问题，如果类别之间是互斥的，选择softmax回归；如果不是互斥的，选择多个二分类的logistic回归，分别判断样本是否属于各个类别。
+
+
 {% include references.md %}
