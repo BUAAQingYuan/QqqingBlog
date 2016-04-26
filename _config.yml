@@ -13,7 +13,7 @@ custom:
         nlp: NLP
         docker: Docker
         ml: Machine Learning
-        qa：知识库与自动问答
+        is: Intelligent search
     categories:
       - name:  deeplearning
         title: Deep Learning
@@ -27,8 +27,8 @@ custom:
       - name:  ml
         title: Machine Learning
 
-      - name: qa
-        title: 知识库与自动问答
+      - name: is
+        title: Intelligent Search
 
     scrollingLoadCount: 2                          # 滚屏自动加载文章数量，“0”为关闭
 
